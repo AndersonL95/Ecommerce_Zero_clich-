@@ -13,11 +13,10 @@ app.use(cookieParser())
 app.use(cors())
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () =>{
-console.log('Server está rodando na porta ', PORT)
-})
+console.log('Server está rodando na porta ', PORT)})
 app.use(fileUpload({
     useTempFiles: true
 }))
 
 
-
+app.use('/user', require('./routes/userRouter'))
