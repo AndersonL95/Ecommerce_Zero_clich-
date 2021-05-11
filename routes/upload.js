@@ -35,7 +35,7 @@ router.post('/upload', auth, authAdmin, (req, res) =>{
         return res.status(500).json({msg: err.message})
     }
 })
-router.post('/destroy', auth, authAdmin,(req, res) =>{
+router.post('/destruir', auth, authAdmin,(req, res) =>{
     try {
         const {public_id} = req.body
     if(!public_id)

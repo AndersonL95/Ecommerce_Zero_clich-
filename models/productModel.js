@@ -31,7 +31,7 @@ const productSchema = new mongoose.Schema({
 
     },
     images:{
-        type: String,
+        type: Object,
         required: true
 
     },
@@ -52,5 +52,7 @@ const productSchema = new mongoose.Schema({
     }
 
 
+}, {
+    timestamps: true
 })
 module.exports = mongoose.model("Produtos", productSchema)
