@@ -33,3 +33,9 @@ button{
   cursor: pointer;
 }
 @import url("./components/headers/header.css");
+
+
+@import url("./components/mainpages/produtos/produtos.css");
+
+
+@import url("./components/mainpages/detalhesProduto/detalhesProdutos.css");

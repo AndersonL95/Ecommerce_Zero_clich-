@@ -6,7 +6,6 @@ header{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #555;
     background-color: #FFDAB9
 }
 header .logo {
@@ -14,24 +13,41 @@ header .logo {
 }
 img.zero {
     display: block;
-    margin-left: auto;
+    margin-left: 500px;
     margin-right: auto;
+    
     
 }
 header ul li {
     display: inline-block;
-    opacity: 0.7;
+    
     padding: 0 20px;
+}
+#btn_user {
+   position:relative;
+   margin-left: auto;
+   font-size:40px;
+   color: #111;
 }
 header ul li:hover{
     opacity: 1;
+}
+#produtos-icon{
+    color: #111;
+    font-size: 30px;
+    
 }
 .menu{
     display: none;
 }
 .cart-icon{
     position: relative;
-    margin-right: 20px;
+    margin-right: 80px;
+    
+}
+.cart_icon2 {
+    color: #111;
+    
 }
 .cart-icon span {
     background: crimson;

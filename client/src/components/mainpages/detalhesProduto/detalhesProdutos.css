@@ -1,0 +1,57 @@
+.detalhe {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    font-size: 150%;
+}
+.detalhe img {
+    position: absolute;
+    left: 60%;
+    top: 30%;
+    object-fit: cover;
+    display: block;
+    max-width: 400px;
+   width: 100%;
+   margin: 20px;
+   /*
+   height: 450px;
+   
+   */
+}
+.caixa_detalhe {
+    max-width: 500px;  
+    width: 100%;
+    margin:5px 20px;
+    margin-right: 400px;
+}
+.caixa_detalhe .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caixa_detalhe h2{
+    text-transform: uppercase;
+    color: #111;
+    letter-spacing: 2px;
+    font-weight: 1.5rem;
+}
+.caixa_detalhe p {
+    text-align: right;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 20px 0;
+    opacity: 0.8;
+}
+.caixa_detalhe .cart {
+    background: #333;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 25px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-left: 320px;
+}
