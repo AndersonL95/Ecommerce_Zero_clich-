@@ -6,6 +6,7 @@ import Registro from './auth/Registro'
 import DetalhesProduto from './detalhesProduto/DetalhesProduto'
 import Cart from './cart/Cart'
 import NotFound from './utils/NotFound/NotFound'
+import Frete from './Correios/frete'
 
 function Pages() {
     return (
@@ -16,6 +17,8 @@ function Pages() {
                 <Route path='/login' exact component={Login} />
                 <Route path='/registro' exact component={Registro} />
                 <Route path='/cart' exact component={Cart} />
+                <Route path='/frete' exact component={Frete} />
+
                 
                 <Route path='*' exact component={NotFound} />
             </Switch>
