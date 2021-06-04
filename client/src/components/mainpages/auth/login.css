@@ -5,9 +5,7 @@
     padding: 15px;
     box-shadow: 0 0 15px #ddd;
     margin: 15px 0;
-    display: block;
-    margin-left: 800px;
-    margin-right: 0px;
+   position: absolute;
 }
 .login h2 {
     text-align: center;

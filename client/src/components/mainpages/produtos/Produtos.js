@@ -4,13 +4,15 @@ import ProdutoItem from '../utils/ProdutoItem/ProdutoItem'
 
 function Produtos() {
     const state = useContext(GlobalState)
-    const [produtos] = state.ProdutosApi.produtos
+    const [produtos] = state.produtosApi.produtos
+    const [seAdmin] = state.userApi.seAdmin
     
     return (
         <div className='produtos'>
             {
                 produtos.map(produto => {
-                    return <ProdutoItem key={produto.id} produto={produto} />
+                    return <ProdutoItem key={produto.id} produto={produto}
+                    seAdmin={seAdmin} />
                 })
             }
         </div>

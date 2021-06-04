@@ -55,7 +55,27 @@
 #btn_buy_link {
     text-align:center;
     text-transform: uppercase;
-    color: #fff;
+    color: #111;
+    font-weight:600;
+    letter-spacing: 2px;
+    padding: 3px;
+    border-radius: 40px;
+    font-family: 'Merienda', cursive;
+}
+#btn_delete {
+    background: #FFDAB9;
+    margin-right: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 10px;
+
+}
+#btn_delete_link {
+    text-align:center;
+    text-transform: uppercase;
+    color: #111;
     font-weight:600;
     letter-spacing: 2px;
     padding: 3px;
@@ -70,3 +90,8 @@
     
 }    
 
+.cartao input {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}

@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Produtos from './produtos/Produtos'
 import Login from './auth/Login'
 import Registro from './auth/Registro'
 import DetalhesProduto from './detalhesProduto/DetalhesProduto'
-import Cart from './cart/Cart'
+import Carrinho from './Carrinho/Carrinho'
 import NotFound from './utils/NotFound/NotFound'
 import Frete from './Correios/frete'
 
+import {GlobalState} from '../../GlobalState'
+
+
 function Pages() {
+    const state = useContext(GlobalState)
+    const [seLogado] = state.userApi.seLogado
     return (
         
             <Switch>
                 <Route path='/' exact component={Produtos} />
                 <Route path='/details/:id' exact component={DetalhesProduto} />
-                <Route path='/login' exact component={Login} />
-                <Route path='/registro' exact component={Registro} />
-                <Route path='/cart' exact component={Cart} />
+                <Route path='/login' exact component={seLogado ? NotFound : Login} />
+                <Route path='/registro' exact component={seLogado ? NotFound : Registro} />
+                <Route path='/carrinho' exact component={Carrinho} />
                 <Route path='/frete' exact component={Frete} />
 
                 

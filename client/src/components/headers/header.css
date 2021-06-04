@@ -9,19 +9,44 @@ header{
     background-color: #FFDAB9
 }
 header .logo {
-    flex: 1;
+    text-align: center;
+    margin:auto;
+    
+    
+    
 }
 img.zero {
-    display: block;
-    margin-left: 500px;
-    margin-right: auto;
-    
+    text-align: center;
+    margin-left: 50px;
+    color: #111;
+    font-family: 'Merienda', cursive;
     
 }
 header ul li {
     display: inline-block;
     
-    padding: 0 20px;
+    padding: 0 15px;
+}
+li a.historia  {
+    font-family: 'Merienda', cursive;
+
+    color: #111;
+    
+}
+li a.sair{
+    color: #111;
+    font-family: 'Merienda', cursive;
+
+}
+li a.cProduto {
+    color: #111;
+    font-family: 'Merienda', cursive;
+
+}
+li a.categoria {
+    color: #111;
+    font-family: 'Merienda', cursive;
+
 }
 #btn_user {
    position:relative;
@@ -35,6 +60,7 @@ header ul li:hover{
 #produtos-icon{
     color: #111;
     font-size: 30px;
+    margin-bottom: -3px;
     
 }
 .menu{
@@ -43,6 +69,7 @@ header ul li:hover{
 .cart-icon{
     position: relative;
     margin-right: 80px;
+    margin-bottom: -3px;
     
 }
 .cart_icon2 {

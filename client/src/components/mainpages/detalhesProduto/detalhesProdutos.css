@@ -7,14 +7,12 @@
     font-size: 150%;
 }
 .detalhe img {
-    position: absolute;
-    left: 60%;
-    top: 30%;
+    margin: 20px;
     object-fit: cover;
     display: block;
     max-width: 400px;
    width: 100%;
-   margin: 20px;
+
    /*
    height: 450px;
    
@@ -23,8 +21,7 @@
 .caixa_detalhe {
     max-width: 500px;  
     width: 100%;
-    margin:5px 20px;
-    margin-right: 400px;
+   
 }
 .caixa_detalhe .row{
     display: flex;
@@ -45,7 +42,7 @@
     margin: 20px 0;
     opacity: 0.8;
 }
-.caixa_detalhe .cart {
+.caixa_detalhe .btn_car {
     background: #333;
     color: white;
     margin-top: 10px;

@@ -2,11 +2,12 @@ import React, {useContext, useState, useEffect} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
 
-function DetalhesProduto() {
+function DetalhesProduto(produto) {
     const params = useParams()
     const state = useContext(GlobalState)
-    const [produtos] = state.ProdutosApi.produtos
+    const [produtos] = state.produtosApi.produtos
     const [detalhesProdutos, setDetalhesProdutos] = useState([])
+    const addCarrinho = state.userApi.addCarrinho
 
     useEffect(() => {
         if(params){
@@ -30,7 +31,7 @@ function DetalhesProduto() {
             <p>{detalhesProdutos.descricao}</p>
             <p>{detalhesProdutos.conteudo}</p>
             <p>Vendido: {detalhesProdutos.vendido}</p>
-            <Link to='/cart' className='cart'> Comprar</Link>
+            <Link to='#!' className='btn_car' onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
         </div>
         </div>
         <div>
