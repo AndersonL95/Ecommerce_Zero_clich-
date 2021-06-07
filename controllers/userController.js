@@ -1,4 +1,5 @@
 const Users = require('../models/User')
+const Payments = require('../models/paymentModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -114,6 +115,16 @@ const userController = {
             return res.json({msg: "Adicionado ao carrinho."})
         } catch (err) {
             return res.status(500).json({msg: err.message})
+        }
+    },
+    historico: async(req, res) => {
+        try {
+            const historico = await Payments.find({user_id: req.user.id})
+
+            res.json(historico)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+
         }
     }
 }

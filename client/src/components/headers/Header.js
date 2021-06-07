@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from './icons/menu.svg'
 import Close from './icons/close.svg'
@@ -34,7 +34,7 @@ function Header() {
     const logadoRouter = () =>{
         return(
             <>
-                <li ><Link to='/historia' className='historia'> História</Link></li>
+                <li ><Link to='/historico' className='historia'> historico</Link></li>
                 <li ><Link to='/' onClick={logoutUser} className='sair'>Sair</Link></li>
 
             

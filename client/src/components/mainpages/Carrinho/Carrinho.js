@@ -1,15 +1,17 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {GlobalState} from '../../../GlobalState'
-import {Link} from 'react-router-dom'
 import axios from 'axios'
 import PaypalButton from './PaypalButton'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 function Carrinho() {
     const state = useContext(GlobalState)
     const [carrinho, setCarrinho] = state.userApi.carrinho
-    const [total, setTotal] = useState(0)
     const [token] = state.token
+    const [callback, setCallback] = state.userApi.callback
+    const [total, setTotal] = useState(0)
+
 
     useEffect(() => {
         const getTotal = () => {
@@ -20,7 +22,7 @@ function Carrinho() {
         }
         getTotal()
     }, [carrinho])
-    const addToCarrinho = async () => {
+    const addToCarrinho = async (carrinho) => {
         await axios.patch('/user/addCarrinho', {carrinho}, {
             headers: {Authorization: token}
         })
@@ -33,7 +35,7 @@ function Carrinho() {
             }
         })
         setCarrinho([...carrinho])
-        addToCarrinho()
+        addToCarrinho(carrinho)
     }
     const decremente = (id) => {
         carrinho.forEach(item => {
@@ -42,7 +44,7 @@ function Carrinho() {
             }
         })
         setCarrinho([...carrinho])
-        addToCarrinho()
+        addToCarrinho(carrinho)
     }
 
     const removeProduto = id => {
@@ -53,10 +55,19 @@ function Carrinho() {
                 }
             })
             setCarrinho([...carrinho])
+            addToCarrinho(carrinho)
         }
     }
     const tranSuccess = async(payment) => {
-        console.log(payment)
+        const {paymentID, address} = payment
+
+        await axios.post('/api/payment', {carrinho, paymentID, address}, {
+            headers: {Authorization: token}
+        })
+        setCarrinho([])
+        addToCarrinho([])
+        alert('Pedido realizado com sucesso.')
+        setCallback(!callback)
     }
 
     if(carrinho.length === 0)
@@ -78,7 +89,7 @@ function Carrinho() {
                                     <span>{produto.quantity}</span>
                                     <button onClick={() => incremente(produto._id)}> + </button>
                                 </div>
-                                <div className='delete' onClick={() => removeProduto(produto._id)}> X </div>
+                                <div className='delete' onClick={() => removeProduto(produto._id)}> <DeleteForeverIcon /> </div>
                         </div>
                     </div>
                 ))

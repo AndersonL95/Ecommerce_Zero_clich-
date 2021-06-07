@@ -17,7 +17,7 @@ const paymentSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    endereco: {
+    address: {
         type: Object,
         require: true
     },

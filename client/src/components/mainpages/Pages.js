@@ -7,6 +7,10 @@ import DetalhesProduto from './detalhesProduto/DetalhesProduto'
 import Carrinho from './Carrinho/Carrinho'
 import NotFound from './utils/NotFound/NotFound'
 import Frete from './Correios/frete'
+import HistoricoPedido from './historico/HistoricoPedido'
+import HistoricoDetalhes from './historico/HistoricoDetalhes'
+
+
 
 import {GlobalState} from '../../GlobalState'
 
@@ -21,6 +25,9 @@ function Pages() {
                 <Route path='/details/:id' exact component={DetalhesProduto} />
                 <Route path='/login' exact component={seLogado ? NotFound : Login} />
                 <Route path='/registro' exact component={seLogado ? NotFound : Registro} />
+                <Route path='/historico' exact component={seLogado ? HistoricoPedido : NotFound}  />
+                <Route path='/historico/:id' exact component={seLogado ? HistoricoDetalhes : NotFound}  />
+
                 <Route path='/carrinho' exact component={Carrinho} />
                 <Route path='/frete' exact component={Frete} />
 

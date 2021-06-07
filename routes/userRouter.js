@@ -11,6 +11,9 @@ router.get('/infor', auth, userController.getUser)
 
 router.patch('/addCarrinho', auth, userController.addCarrinho)
 
+router.get('/historico', auth, userController.historico)
+
+
 
 
 module.exports = router
