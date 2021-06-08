@@ -21,7 +21,10 @@ th, td{
     text-transform: capitalize;
 }
 table a{
-    color: #FFDAB9;
+    color:tomato
+}
+#btn_view {
+    background-color: #FFDAB9;
 }
 .historico-page img {
     width: 70px;

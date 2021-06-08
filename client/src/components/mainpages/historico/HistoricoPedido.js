@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import {GlobalState} from '../../../GlobalState'
 import {Link} from 'react-router-dom'
+import { Button } from '@material-ui/core';
+
 
 function HistoricoPedido() {
     const state = useContext(GlobalState)
@@ -26,7 +28,7 @@ function HistoricoPedido() {
                             <tr key={items._id}>
                                 <td>{items.paymentID}</td>
                                 <td>{new Date(items.createdAt).toLocaleDateString('pt-BR') }</td>
-                                <td><Link to={`/historico/${items._id}`}>Detalhes</Link></td>
+                                <td><Link to={`/historico/${items._id}`}><Button id='btn_view'>Detalhes</Button></Link></td>
                             </tr>
                         ))
                     }

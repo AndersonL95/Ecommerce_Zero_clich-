@@ -1,11 +1,18 @@
-.login {
+
+.zero {
+    margin: 10px 50px;
+}
+#btn_login {
+    background-color: #FFDAB9;
+}
+/*.login {
     max-width: 400px;
     overflow: hidden;
     height: 500px;
     padding: 15px;
     box-shadow: 0 0 15px #ddd;
-    margin: 15px 0;
-   position: absolute;
+    margin:inherit;
+    margin-top: 25px;
 }
 .login h2 {
     text-align: center;
@@ -26,7 +33,6 @@
 .login form Button {
     width: 150px;
     background-color: #FFDAB9;
-    color:#fff;
     border-radius: 15px;
 }
 .login form .row {
@@ -39,3 +45,4 @@
     letter-spacing: 1.3px;
     text-transform: uppercase;
 }
+*/

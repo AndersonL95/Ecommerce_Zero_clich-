@@ -34,7 +34,7 @@ function Header() {
     const logadoRouter = () =>{
         return(
             <>
-                <li ><Link to='/historico' className='historia'> historico</Link></li>
+                <li ><Link to='/historico' className='historia'> Meus pedidos</Link></li>
                 <li ><Link to='/' onClick={logoutUser} className='sair'>Sair</Link></li>
 
             
