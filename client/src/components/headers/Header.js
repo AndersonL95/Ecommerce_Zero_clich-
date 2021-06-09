@@ -25,7 +25,7 @@ function Header() {
         return(
             <>
                 <li><Link to='/criar_produto'className='cProduto'> + Produto</Link></li>
-                <li><Link to='/categoria' className='categoria'> categoria</Link></li>
+                <li><Link to='/categoria' className='categoria'> categorias</Link></li>
 
             
             </>

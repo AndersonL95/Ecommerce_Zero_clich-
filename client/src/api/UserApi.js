@@ -32,14 +32,21 @@ function UserApi(token) {
     useEffect(() => {
         if(token) {
             const getHistrico = async() => {
-                const res = await axios.get('/user/historico', {
-                    headers: {Authorization: token}
-                })
-                setHistorico(res.data)
+                if(seAdmin) {
+                    const res = await axios.get('/api/payment', {
+                        headers: {Authorization: token}
+                    })
+                    setHistorico(res.data)
+                }else{
+                    const res = await axios.get('/user/historico', {
+                        headers: {Authorization: token}
+                    })
+                    setHistorico(res.data)
+                }
             }
             getHistrico()
         }
-    },[token, callback])
+    },[token, callback, seAdmin])
     const addCarrinho = async (produto) => {
         if(!seLogado)
             return alert("Por favor, insira o login para continuar!")
