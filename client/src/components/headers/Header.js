@@ -52,7 +52,7 @@ function Header() {
                 </h1>
             </div>
             <ul>
-                <li><Link to='/'>{seAdmin ? <StorefrontIcon id='produtos-icon'/> :<StorefrontIcon id='produtos-icon'/>}</Link></li>
+                <li><Link id='produtos-icon' to='/'>{seAdmin ? <StorefrontIcon id='produtos-icon'/> : 'Produtos' }</Link></li>
                 {seAdmin && adminRouter()}
                 {
                     seLogado ? logadoRouter() : <li><Link to='/login'><PersonIcon id='btn_user'/></Link></li>
