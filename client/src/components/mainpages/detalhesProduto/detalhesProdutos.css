@@ -43,8 +43,8 @@
     opacity: 0.8;
 }
 .caixa_detalhe .btn_car {
-    background: #333;
-    color: white;
+    background: #FFDAB9;
+    color: #111;
     margin-top: 10px;
     padding: 10px 25px;
     display: inline-block;

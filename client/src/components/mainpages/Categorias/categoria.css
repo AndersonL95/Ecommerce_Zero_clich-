@@ -1,0 +1,46 @@
+
+.categorias {
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px auto;
+}
+.categorias form {
+    width: 290px;
+    margin-bottom: 20px;
+}
+.categorias label {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.categorias input, button{
+    height: 35px;
+    border: none;
+    outline: none;
+    border:solid 1px #ccc;
+}
+.categorias input {
+    
+}
+.categorias button {
+    width: 90px;
+    background: #FFDAB9;
+    color: #111;
+    margin-left: 10px;
+}
+#btn_salvar{
+    margin-left: 0px;
+}
+.categorias .row {
+    min-width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}

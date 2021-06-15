@@ -9,6 +9,7 @@ import NotFound from './utils/NotFound/NotFound'
 import Frete from './Correios/frete'
 import HistoricoPedido from './historico/HistoricoPedido'
 import HistoricoDetalhes from './historico/HistoricoDetalhes'
+import Categorias from './Categorias/Categorias'
 
 
 
@@ -18,6 +19,8 @@ import {GlobalState} from '../../GlobalState'
 function Pages() {
     const state = useContext(GlobalState)
     const [seLogado] = state.userApi.seLogado
+    const [seAdmin] = state.userApi.seAdmin
+
     return (
         
             <Switch>
@@ -25,6 +28,7 @@ function Pages() {
                 <Route path='/details/:id' exact component={DetalhesProduto} />
                 <Route path='/login' exact component={seLogado ? NotFound : Login} />
                 <Route path='/registro' exact component={seLogado ? NotFound : Registro} />
+                <Route path='/categoria' exact component={seAdmin ? Categorias : NotFound} />
                 <Route path='/historico' exact component={seLogado ? HistoricoPedido : NotFound}  />
                 <Route path='/historico/:id' exact component={seLogado ? HistoricoDetalhes : NotFound}  />
 

@@ -4,6 +4,7 @@ import Menu from './icons/menu.svg'
 import Close from './icons/close.svg'
 import {Link} from 'react-router-dom'
 import Zero from './icons/ZeroClichê.png'
+import ZeroAdmin from './icons/ZeroClichêAdmin.png'
 import PersonIcon from '@material-ui/icons/Person';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StorefrontIcon from '@material-ui/icons/Storefront';
@@ -48,7 +49,7 @@ function Header() {
             </div>
             <div className='logo'>
                 <h1>
-                    <Link to='/'>{seAdmin ? <img src={Zero} alt='ZeroClichê' width='150' className='zero'/> : <img src={Zero} alt='ZeroClichê' width='150' className='zero'/>}</Link>
+                    <Link to='/'>{seAdmin ? <img src={ZeroAdmin} alt='ZeroClichê' width='150' className='zeroAdmin'/> : <img src={Zero} alt='ZeroClichê' width='150' className='zero'/>}</Link>
                 </h1>
             </div>
             <ul>

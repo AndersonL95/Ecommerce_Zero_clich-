@@ -9,17 +9,19 @@ header{
     background-color: #FFDAB9
 }
 header .logo {
-    margin:auto;
-    margin-right: 90px;
-    
-    
-    
-    
+    margin: 0 200px 0 auto;
 }
 img.zero {
     text-align: center;
     color: #111;
     font-family: 'Merienda', cursive;
+    
+}
+img.zeroAdmin {
+    text-align: center;
+    color: #111;
+    font-family: 'Merienda', cursive;
+    margin-right: -50px;
     
 }
 header ul li {
@@ -51,7 +53,7 @@ li a.categoria {
 #btn_user {
    position:relative;
    margin-left: auto;
-   font-size:40px;
+   font-size:30px;
    color: #111;
 }
 header ul li:hover{
@@ -60,7 +62,6 @@ header ul li:hover{
 #produtos-icon{
     color: #111;
     font-size: 17px;
-    margin-bottom: -3px;
     font-family: 'Merienda', cursive;
 
     
