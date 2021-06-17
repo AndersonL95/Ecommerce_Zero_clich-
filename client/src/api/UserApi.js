@@ -6,7 +6,6 @@ function UserApi(token) {
     const [seAdmin, setSeAdmin] = useState(false)
     const [carrinho, setCarrinho] = useState([])
     const [historico, setHistorico] = useState([])
-    const [callback, setCallback] = useState(false)
 
     useEffect(()=> {
         if(token){
@@ -29,24 +28,7 @@ function UserApi(token) {
         }   
     },[token])
 
-    useEffect(() => {
-        if(token) {
-            const getHistrico = async() => {
-                if(seAdmin) {
-                    const res = await axios.get('/api/payment', {
-                        headers: {Authorization: token}
-                    })
-                    setHistorico(res.data)
-                }else{
-                    const res = await axios.get('/user/historico', {
-                        headers: {Authorization: token}
-                    })
-                    setHistorico(res.data)
-                }
-            }
-            getHistrico()
-        }
-    },[token, callback, seAdmin])
+    
     const addCarrinho = async (produto) => {
         if(!seLogado)
             return alert("Por favor, insira o login para continuar!")
@@ -70,7 +52,6 @@ function UserApi(token) {
         carrinho:[carrinho, setCarrinho],
         addCarrinho: addCarrinho,
         historico: [historico, setHistorico],
-        callback: [callback, setCallback]
     }
 }
 export default UserApi

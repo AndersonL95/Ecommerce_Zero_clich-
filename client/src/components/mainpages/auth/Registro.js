@@ -16,7 +16,9 @@ function Registro() {
         e.preventDefault()
         try {
             await axios.post('/user/registro',{...usuario})
-            localStorage.setItem('firstLogin', true)
+            localStorage.setItem('primeiroLogin', true)
+
+            window.location.href = '/'
         } catch (err) {
             alert(err.response.data.msg)
             

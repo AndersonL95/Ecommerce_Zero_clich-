@@ -10,6 +10,8 @@ import Frete from './Correios/frete'
 import HistoricoPedido from './historico/HistoricoPedido'
 import HistoricoDetalhes from './historico/HistoricoDetalhes'
 import Categorias from './categorias/Categorias'
+import CriarProduto from './createProdutos/CriarProduto'
+
 
 
 
@@ -28,9 +30,10 @@ function Pages() {
                 <Route path='/login' exact component={seLogado ? NotFound : Login} />
                 <Route path='/registro' exact component={seLogado ? NotFound : Registro} />
                 <Route path='/historico' exact component={seLogado ? HistoricoPedido : NotFound}  />
-                <Route path='/historico/:id' exact component={seAdmin ? HistoricoDetalhes : NotFound}  />
-                <Route path='/categoria' exact component={seLogado ? Categorias : NotFound}  />
-
+                <Route path='/historico/:id' exact component={seLogado ? HistoricoDetalhes : NotFound}  />
+                <Route path='/categoria' exact component={seAdmin ? Categorias : NotFound}  />
+                <Route path='/criar_produto' exact component={seAdmin ? CriarProduto : NotFound}  />
+                <Route path='/editar_produto/:id' exact component={seAdmin ? CriarProduto : NotFound}  />
                 <Route path='/carrinho' exact component={Carrinho} />
                 <Route path='/frete' exact component={Frete} />
 
