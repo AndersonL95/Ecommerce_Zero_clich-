@@ -9,7 +9,6 @@ function Carrinho() {
     const state = useContext(GlobalState)
     const [carrinho, setCarrinho] = state.userApi.carrinho
     const [token] = state.token
-    const [callback, setCallback] = state.userApi.callback
     const [total, setTotal] = useState(0)
 
 
@@ -67,7 +66,7 @@ function Carrinho() {
         setCarrinho([])
         addToCarrinho([])
         alert('Pedido realizado com sucesso.')
-        setCallback(!callback)
+    
     }
 
     if(carrinho.length === 0)

@@ -21,7 +21,7 @@ function BtnRender({produto}) {
                         </Link>
                     </Button>
                     <Button id='btn_buy'>
-                        <Link id='btn_buy_link' to={`/${produto._id}`}>
+                        <Link id='btn_buy_link' to={`/editar_produto/${produto._id}`}>
                         <EditIcon id='btn_icon'/>
                         Editar
                         </Link>

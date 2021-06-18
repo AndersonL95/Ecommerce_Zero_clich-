@@ -1,16 +1,24 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import ProdutoItem from '../utils/ProdutoItem/ProdutoItem'
 import Slider from '../Slider/Slider'
-import AwesomeSliderStyles from'react-awesome-slider/dist/styles.css?raw'
-import { StylesProvider } from '@material-ui/styles'
-
+import axios from 'axios'
 
 
 function Produtos() {
     const state = useContext(GlobalState)
-    const [produtos] = state.produtosApi.produtos
+    const [produtos, setProdutos] = state.produtosApi.produtos
     const [seAdmin] = state.userApi.seAdmin
+
+    
+
+    useEffect(() =>{
+        const getProdutos = async () => {
+            const res = await axios.get('/api/produtos')
+            setProdutos(res.data.produtos)
+        }
+        getProdutos()
+    }, [setProdutos])
     
     return (
         <div className='slider'>
@@ -19,7 +27,7 @@ function Produtos() {
 
             {
                 produtos.map(produto => {
-                    return <ProdutoItem key={produto.id} produto={produto}
+                    return <ProdutoItem key={produto._id} produto={produto}
                     seAdmin={seAdmin} />
                 })
             }
