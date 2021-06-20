@@ -16,7 +16,7 @@ const initialState = {
 }
     
 
-const CriarProduto = () => {
+function CriarProduto(){
     const state = useContext(GlobalState)
     const [ produto, setProduto] = useState(initialState)
     const [categorias] = state.categoriaApi.categorias
@@ -30,6 +30,7 @@ const CriarProduto = () => {
 
     const [produtos] = state.produtosApi.produtos
     const[onEdit, setOnEdit] = useState(false)
+
     useEffect(() =>{
        if(param.id){
            setOnEdit(true)
@@ -45,9 +46,7 @@ const CriarProduto = () => {
        }
     }, [param.id, produtos])
 
-    const styleUpload ={
-        display: images ? 'block' : 'none'
-    }
+    
     const handleUpload = async e =>{
         e.preventDefault()
         try {
@@ -56,7 +55,7 @@ const CriarProduto = () => {
                 const file = e.target.files[0]
                 
                 if(!file) return alert('Arquivo não existe.')
-                if(file.size > 1024 *1024)
+                if(file.size > 1024 * 1024)
                     return alert('Arquivo muito grande!')
                 if(file.type !== 'image/jpeg' && file.type !== 'image/png')
                     return alert('Formato do arquivo invalido!')
@@ -116,6 +115,9 @@ const CriarProduto = () => {
         } catch (err) {
             alert(err.response.data.msg)
         }
+    }
+    const styleUpload ={
+        display: images ? 'block' : 'none'
     }
     return (
         <div className='criar_produto'>

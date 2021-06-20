@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
 
-function DetalhesProduto(produto) {
+function DetalhesProduto() {
     const params = useParams()
     const state = useContext(GlobalState)
     const [produtos] = state.produtosApi.produtos
@@ -15,7 +15,7 @@ function DetalhesProduto(produto) {
                 if(produto._id === params.id) setDetalhesProdutos(produto)
             })
         }
-    }, [params, detalhesProdutos])
+    }, [params, produtos])
     if(detalhesProdutos.length === 0) return null
 
     return (

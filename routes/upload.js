@@ -6,13 +6,13 @@ const fs = require('fs')
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUD_API,
+    api_key: process.env.CLOUD_API_KEY,
     api_secret: process.env.CLOUD_API_SECRET
 })
 
 router.post('/upload', auth, authAdmin, (req, res) =>{
     try {
-        console.log(req.files)
+    
         if(!req.files || Object.keys(req.files).length === 0)
             return res.status(400).json({mag: 'Não á dadps para upload.'})
 
