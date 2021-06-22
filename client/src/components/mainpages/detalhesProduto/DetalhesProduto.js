@@ -10,12 +10,13 @@ function DetalhesProduto(produto) {
     const addCarrinho = state.userApi.addCarrinho
 
     useEffect(() => {
-        if(params){
+        if(params.id){
             produtos.forEach(produto => {
                 if(produto._id === params.id) setDetalhesProdutos(produto)
             })
         }
-    }, [params, detalhesProdutos])
+    }, [params.id, detalhesProdutos])
+    
     if(detalhesProdutos.length === 0) return null
 
     return (

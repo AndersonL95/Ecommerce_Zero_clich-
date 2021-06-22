@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import axios from 'axios'
+import {GlobalState} from '../../../GlobalState'
+
 
 
 const initialValue = {
@@ -17,8 +19,10 @@ const initialValue = {
 
 }
 function Frete() {
+  const state = useContext(GlobalState)
   const [values, setValues] = useState(initialValue)
   const history = useHistory()
+  const [token] = state.token
 
   function onChange(e) {
     const {name, value} = e.target
@@ -28,7 +32,9 @@ function Frete() {
     e.preventDefault()
   
     try {
-      await axios.post('api/frete',values)
+      await axios.post('api/frete',{...values}, {
+        headers: {Authorization: token}
+    })
       .then(res => {
         this.setValues({value: res.value})
       })   

@@ -34,9 +34,10 @@ const CriarProduto = () => {
        if(param.id){
            setOnEdit(true)
          produtos.forEach(produto => {
-             if(produto._id === param.id) 
-             setProduto(produto)
-             setImages(produto.images)
+             if(produto._id === param.id){
+                setProduto(produto)
+                setImages(produto.images)
+             }
          })
        }else{
            setOnEdit(false)
@@ -45,9 +46,7 @@ const CriarProduto = () => {
        }
     }, [param.id, produtos])
 
-    const styleUpload ={
-        display: images ? 'block' : 'none'
-    }
+    
     const handleUpload = async e =>{
         e.preventDefault()
         try {
@@ -116,6 +115,9 @@ const CriarProduto = () => {
         } catch (err) {
             alert(err.response.data.msg)
         }
+    }
+    const styleUpload ={
+        display: images ? 'block' : 'none'
     }
     return (
         <div className='criar_produto'>
