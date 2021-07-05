@@ -2,7 +2,7 @@ const router = require('express').Router()
 const {calcularPrecoPrazo} = require('correios-brasil')
 router.post('/frete', (req, res) =>{
 
-    const args = {
+    const values = {
         sCepOrigem,
         sCepDestino,
         nVlPeso,
@@ -14,7 +14,7 @@ router.post('/frete', (req, res) =>{
         nVlDiamentro,
     } = req.body 
     
-    calcularPrecoPrazo(args)
+    calcularPrecoPrazo(values)
     .then((response) =>{
         res.send(response)
     console.log(response)

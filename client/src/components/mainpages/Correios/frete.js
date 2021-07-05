@@ -7,15 +7,15 @@ import {GlobalState} from '../../../GlobalState'
 
 
 const initialValue = {
-  sCepOrigem: String,
-  sCepDestino: String,
-  nVlPeso: Number,
-  nCdFormato: Number,
-  nVlComprimento: Number,
-  nVlAltura: Number,
-  nVlLargura: Number,
-  nCdServico: Array,
-  nVlDiamentro: Number,
+  sCepOrigem: '',
+  sCepDestino: '',
+  nVlPeso: 0,
+  nCdFormato: 0,
+  nVlComprimento: 0,
+  nVlAltura: 0,
+  nVlLargura: 0,
+  nCdServico: '',
+  nVlDiamentro: '',
 
 }
 function Frete() {
@@ -58,7 +58,7 @@ function Frete() {
               <input type='text' name='nVlComprimento' placeholder='Comprimento'  onChange={onChange}/>
               <input type='text' name='nVlAltura' placeholder='Altura'onChange={onChange}/>
               <input type='text' name='nVlLargura'placeholder='Largura' onChange={onChange}/>
-              <select multiple={true} value={['04014'],['04510']} type='text' name='nCdServico' placeholder='Serviço' onChange={onChange}>
+              <select multiple={true} name='nCdServico' placeholder='Serviço' onChange={onChange}>
                 <option  value='04014'>Sedex</option>
                 <option  value='04510'>Pac</option>
               </select>

@@ -33,7 +33,6 @@ function Pages() {
                 <Route path='/editar_produto/:id' exact component={seAdmin ? CriarProduto : NotFound} />
                 <Route path='/historico' exact component={seLogado ? HistoricoPedido : NotFound}  />
                 <Route path='/historico/:id' exact component={seLogado ? HistoricoDetalhes : NotFound}  />
-
                 <Route path='/carrinho' exact component={Carrinho} />
                 <Route path='/frete' exact component={Frete} />
 
