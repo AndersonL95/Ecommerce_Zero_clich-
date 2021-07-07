@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const {calcularPrecoPrazo} = require('correios-brasil')
-router.post('/frete', (req, res) =>{
+const auth = require('../utils/auth')
+const authAdmin = require('../utils/authAdmin')
+router.post('/frete', auth, authAdmin, (req, res) =>{
 
     const values = {
         sCepOrigem,
@@ -10,7 +12,7 @@ router.post('/frete', (req, res) =>{
         nVlComprimento,
         nVlAltura,
         nVlLargura,
-        nCdServico: [],
+        nCdServico,
         nVlDiamentro,
     } = req.body 
     

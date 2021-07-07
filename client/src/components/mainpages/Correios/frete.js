@@ -58,7 +58,7 @@ function Frete() {
               <input type='text' name='nVlComprimento' placeholder='Comprimento'  onChange={onChange}/>
               <input type='text' name='nVlAltura' placeholder='Altura'onChange={onChange}/>
               <input type='text' name='nVlLargura'placeholder='Largura' onChange={onChange}/>
-              <select multiple={true} name='nCdServico' placeholder='Serviço' onChange={onChange}>
+              <select name='nCdServico' placeholder='Serviço' onChange={onChange}>
                 <option  value='04014'>Sedex</option>
                 <option  value='04510'>Pac</option>
               </select>
