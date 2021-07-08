@@ -6,7 +6,7 @@ import {GlobalState} from '../../../../GlobalState'
 import EditIcon from '@material-ui/icons/Edit';
 
 
-function BtnRender({produto}) {
+function BtnRender({produto, deleteProduto}) {
     const state = useContext(GlobalState)
     const [seAdmin] = state.userApi.seAdmin
     
@@ -16,7 +16,7 @@ function BtnRender({produto}) {
                 seAdmin ?
                 <>
                     <Button id='btn_delete'>
-                        <Link id='btn_delete_link' to='#!'>
+                        <Link id='btn_delete_link' to='#!'onClick={deleteProduto}>
                             Delete
                         </Link>
                     </Button>

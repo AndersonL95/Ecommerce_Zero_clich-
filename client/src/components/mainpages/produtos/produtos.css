@@ -7,3 +7,32 @@
 }
 
 @import url("../utils/ProdutoItem/productItem.css");
+
+.deleteAll {
+    text-align: right;
+    margin: 20px;
+}
+.deleteAll input {
+    height: 25px;
+    width: 25px;
+    transform: translate(5px);
+    margin: 0 15px;
+}
+.deleteAll span {
+    text-transform: uppercase;
+    color: #111;
+    letter-spacing: 1.3px;
+}
+.deleteAll button {
+    border: 1px solid crimson;
+    padding: 10px 25px;
+    color: crimson;
+    text-transform: uppercase;
+}
+#spiner {
+    width: 50%;
+    height: 50%;
+    margin: 50% 50% 50% 47%;
+    color: #111;
+
+}
