@@ -13,8 +13,8 @@ function ProdutoItem({produto, seAdmin, deleteProduto, handleCheck}) {
             <img src={produto.images.url} alt='' />
             <div className='caixa'>
                 <h2 title={produto.titulo}>{produto.titulo}</h2>
-                <span>${produto.preco}</span>
-                <p>${produto.descricao}</p>
+                <span>R$ {produto.preco}</span>
+                <p>{produto.descricao}</p>
             </div>
             
                 <BtnRender produto={produto} deleteProduto={deleteProduto}/>

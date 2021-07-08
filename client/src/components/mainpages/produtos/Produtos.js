@@ -3,6 +3,8 @@ import {GlobalState} from '../../../GlobalState'
 import ProdutoItem from '../utils/ProdutoItem/ProdutoItem'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import axios from 'axios'
+import Filters from './Filter'
+import LoadMore from './LoadMore';
 
 function Produtos() {
     const state = useContext(GlobalState)
@@ -56,6 +58,7 @@ function Produtos() {
     if(circular) return <div><CircularProgress /></div>
     return (
         <>
+        <Filters />
         {
             seAdmin &&
             <div className='deleteAll'>
@@ -72,6 +75,7 @@ function Produtos() {
                 })
             }
         </div>
+        <LoadMore />
         {produtos.length === 0 && <CircularProgress id='spiner'/>}
         </>
     )

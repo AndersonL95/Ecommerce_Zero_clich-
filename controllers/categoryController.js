@@ -1,4 +1,7 @@
 const Categoria = require('../models/categoryModel')
+const Produtos = require('../models/productModel')
+
+
 const categoryController = {
     getCategorias: async (req, res) =>{
         try {
@@ -28,6 +31,10 @@ const categoryController = {
     },
     deleteCategoria: async(req, res) => {
         try {
+            const produtos = await Produtos.findOne({categoria: req.params.id})
+            if(produtos) return res.status(400).json({
+                msg: "Deletar todos os produtos  relacionados."
+            })
           await Categoria.findByIdAndDelete(req.params.id)
           res.json({msg: "Categoria excluida."})  
         } catch (err) {
