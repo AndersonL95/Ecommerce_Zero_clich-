@@ -36,6 +36,7 @@ function Produtos() {
             await deleteProduto
             setCircular(false)
             setCallback(!callback)
+            setCircular(false)
         } catch (err) {
             alert(err.response.data.msg)
         }

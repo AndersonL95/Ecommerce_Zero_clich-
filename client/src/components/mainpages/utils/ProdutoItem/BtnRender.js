@@ -17,7 +17,7 @@ function BtnRender({produto, deleteProduto}) {
                 seAdmin ?
                 <>
                     <Button id='btn_delete'>
-                        <Link id='btn_delete_link' to='#!'onClick={deleteProduto}>
+                        <Link id='btn_delete_link' to='#!'onClick={() => deleteProduto(produto._id, produto.images.public_id)}>
                             < DeleteIcon id='btn_icon'/>
                         </Link>
                     </Button>
