@@ -32,7 +32,7 @@ const categoryController = {
         try {
             const produtos = await Produtos.findOne({categoria: req.params.id})
             if(produtos) return res.status(400).json({
-                msg: "Delete todos os produtos relacionados a categoria."
+                msg: "Delete todos os produtos relacionados."
             })
             
           await Categoria.findByIdAndDelete(req.params.id)

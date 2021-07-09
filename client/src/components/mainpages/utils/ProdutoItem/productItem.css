@@ -62,10 +62,21 @@
     padding: 3px;
     border-radius: 40px;
     font-family: 'Merienda', cursive;
-    margin-bottom: 10px;
+}
+#btn_edit {
+    width: 100px;
+    background: #FFDAB9;
+    margin-right: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 10px;
 
 }
+
 #btn_delete {
+    width: 100px;
     background: #FFDAB9;
     margin-right: 5px;
     display: block;
@@ -84,8 +95,8 @@
     padding: 3px;
     border-radius: 40px;
     font-family: 'Merienda', cursive;
+    
 }
-
 #btn_icon {
     
     padding-top: 7px;

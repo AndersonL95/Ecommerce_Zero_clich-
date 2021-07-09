@@ -29,7 +29,9 @@ const CriarProduto = () => {
     const param = useParams()
 
     const [produtos] = state.produtosApi.produtos
-    const[onEdit, setOnEdit] = useState(false)
+    const [onEdit, setOnEdit] = useState(false)
+    const [callback, setCallback] = state.produtosApi.callback
+
     useEffect(() =>{
        if(param.id){
            setOnEdit(true)
@@ -109,8 +111,7 @@ const CriarProduto = () => {
             })
             
             }
-            setImages(false)
-            setProduto(initialState)
+            setCallback(!callback)
             history.push('/')
         } catch (err) {
             alert(err.response.data.msg)
