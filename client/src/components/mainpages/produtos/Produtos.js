@@ -55,20 +55,24 @@ function Produtos() {
             if(produto.checked) deleteProduto(produto._id, produto.images.public_id)
         })
     }
-    if(circular) return <div><CircularProgress /></div>
+    if(circular) return <div><CircularProgress id='spiner'/></div>
     return (
         <>
-        <Filters />
-        {
+        
+        
+        <div className='slider'>
+            <Slider className={produtos.Slider}/>
+            <div className='filtro'><Filters />
+            {
             seAdmin &&
             <div className='deleteAll'>
-                <span>Selecionar todos</span>
+                <span>Selecionar</span>
                 <input type='checkbox' checked={isCheck} onChange={checkAll} />
                 <button onClick={deleteAll}>Apagar todos</button>
             </div>
         }
-        <div className='slider'>
-            <Slider className={produtos.Slider}/>
+            </div>
+            
             <div className='produtos'>
 
                 {

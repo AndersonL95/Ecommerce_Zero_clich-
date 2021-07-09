@@ -11,6 +11,13 @@ header{
 header .logo {
     margin: 0 200px 0 auto;
 }
+header input {
+    margin-left: 30px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    height: 30px;
+}
 img.zero {
     text-align: center;
     color: #111;
