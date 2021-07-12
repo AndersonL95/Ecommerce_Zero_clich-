@@ -21,8 +21,7 @@ const initialValue = {
 function Frete() {
   const state = useContext(GlobalState)
   const [values, setValues] = useState(initialValue)
-  const history = useHistory()
-  const [token] = state.token
+  
 
   function onChange(e) {
     const {name, value} = e.target
@@ -32,17 +31,20 @@ function Frete() {
     e.preventDefault()
   
     try {
-      await axios.post('api/frete',{...values}, {
-        headers: {Authorization: token}
+      await axios.post('/frete',{...values}, {
+      
     })
+      
       .then(res => {
         this.setValues({value: res.value})
+
       })   
     }catch (err) {
       
       
     }
-      console.log(values)
+      
+      
 
     }
   

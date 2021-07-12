@@ -1,10 +1,12 @@
 const router = require('express').Router()
-const {calcularPrecoPrazo} = require('correios-brasil')
-const auth = require('../utils/auth')
-const authAdmin = require('../utils/authAdmin')
-router.post('/frete', auth, authAdmin, (req, res) =>{
+const Correios = require('node-correios')
 
-    const values = {
+const correios = new Correios()
+
+router.post('/frete',(req, res) =>{
+
+    const {
+        nCdServico,
         sCepOrigem,
         sCepDestino,
         nVlPeso,
@@ -12,14 +14,24 @@ router.post('/frete', auth, authAdmin, (req, res) =>{
         nVlComprimento,
         nVlAltura,
         nVlLargura,
-        nCdServico,
         nVlDiamentro,
-    } = req.body 
+    } = req.body
     
-    calcularPrecoPrazo(values)
-    .then((response) =>{
-        res.send(response)
-    console.log(response)
+    correios.calcPrecoPrazo({
+        nCdServico,
+        sCepOrigem,
+        sCepDestino,
+        nVlPeso,
+        nCdFormato,
+        nVlComprimento,
+        nVlAltura,
+        nVlLargura,
+        nVlDiamentro,
+    }).then(values => {
+        res.json(values)
+        console.log(values)
+    }).catch(error => {
+        return res.json(error)
     })
 })
 module.exports = router
