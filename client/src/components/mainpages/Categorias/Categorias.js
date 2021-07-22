@@ -3,7 +3,6 @@ import{GlobalState} from '../../../GlobalState'
 import axios from 'axios'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditIcon from '@material-ui/icons/Edit';
-import UpdateIcon from '@material-ui/icons/Update';
 
 function Categorias(){
     const state = useContext(GlobalState)

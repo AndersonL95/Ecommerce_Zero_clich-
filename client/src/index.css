@@ -54,3 +54,6 @@ button{
 @import url("./components/mainpages/createProdutos/criarProduto.css");
 
 @import url("./components/footer/footer.css");
+
+@import url("./components/mainpages/Correios/calcFrete.css");
+

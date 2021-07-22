@@ -17,6 +17,7 @@ function Header() {
     const [seAdmin] = state.userApi.seAdmin
     const [carrinho] = state.userApi.carrinho
     const [search, setSearch] = state.produtosApi.search
+    const [menu, setMenu] = useState(false)
 
 
     const logoutUser = async () => {
@@ -29,8 +30,9 @@ function Header() {
     const adminRouter = () =>{
         return(
             <>
-                <li><Link to='/criar_produto'className='cProduto'> + Produto</Link></li>
-                <li><Link to='/categoria' className='categoria'> categoria</Link></li>
+                <li><Link to='/criar_produto'> + Produto</Link></li>
+                <li><Link to='/categoria' > categoria</Link></li>
+                <li><Link to='/tamanho'> Tamanhos</Link></li>
 
             
             </>
@@ -45,6 +47,9 @@ function Header() {
             
             </>
         )
+    }
+    const styleMenu = {
+        left: menu ? 0 : "-100%"
     }
     return (
         <header>
@@ -66,14 +71,16 @@ function Header() {
                 
             </div>
             
-            <ul>
-                <li><Link id='produtos-icon' to='/'>{seAdmin ? <StorefrontIcon id='produtos-icon'/> : 'Produtos' }</Link></li>
+            <ul style={styleMenu}>
+                <li><Link id='produtos-icon' to='/'>{seAdmin ? '' : 'Produtos' }</Link></li>
                 {seAdmin && adminRouter()}
                 {
                     seLogado ? logadoRouter() : <li><Link to='/login'><PersonIcon id='btn_user'/></Link></li>
                 }
                 
-                <li><img src={Close} alt='' width='30' className='menu'/></li>
+                <li onClick={() => setMenu(!menu)}>
+                    <img src={Close} alt='' width='30' className='menu'/>
+                </li>
             </ul>
             {
                 seAdmin ? ''

@@ -6,7 +6,7 @@ import Registro from './auth/Registro'
 import DetalhesProduto from './detalhesProduto/DetalhesProduto'
 import Carrinho from './Carrinho/Carrinho'
 import NotFound from './utils/NotFound/NotFound'
-import Frete from './Correios/frete'
+import Frete from './Correios/CalcFrete'
 import HistoricoPedido from './historico/HistoricoPedido'
 import HistoricoDetalhes from './historico/HistoricoDetalhes'
 import Categorias from './Categorias/Categorias'
@@ -34,7 +34,7 @@ function Pages() {
                 <Route path='/historico' exact component={seLogado ? HistoricoPedido : NotFound}  />
                 <Route path='/historico/:id' exact component={seLogado ? HistoricoDetalhes : NotFound}  />
                 <Route path='/carrinho' exact component={Carrinho} />
-                <Route path='/frete' exact component={Frete} />
+                
 
                 
                 <Route path='*' exact component={NotFound} />

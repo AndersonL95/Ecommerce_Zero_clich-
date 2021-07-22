@@ -2,6 +2,8 @@ import React, {useContext, useState, useEffect} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
 import ProdutoItem from '../utils/ProdutoItem/ProdutoItem'
+import CalcFrete from '../Correios/CalcFrete'
+import Tamanho from './Tamanho'
 
 function DetalhesProduto(produto) {
     const params = useParams()
@@ -20,6 +22,7 @@ function DetalhesProduto(produto) {
     
     if(detalhesProdutos.length === 0) return null
 
+    
     return (
         <>
         <div className='detalhe'>
@@ -33,8 +36,11 @@ function DetalhesProduto(produto) {
                 <p>{detalhesProdutos.descricao}</p>
                 <p>{detalhesProdutos.conteudo}</p>
                 <p>Vendido: {detalhesProdutos.vendido}</p>
+                <Tamanho />
                 <Link to='#!' className='btn_car' onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
+                <CalcFrete />
             </div>
+            
         </div>
         <div>
             <h2>Produtos Relacionados</h2>

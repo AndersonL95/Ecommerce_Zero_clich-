@@ -92,7 +92,7 @@ function Registro() {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           
-          <img src={Zero} alt='ZeroClichê' width='120' className='zero'/>
+          <img src={Zero} alt='ZeroClichê' width='120' className='zeroL'/>
           
           <Typography component="h1" variant="h5">
             Registrar

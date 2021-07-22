@@ -1,0 +1,40 @@
+.CalcFrete {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 175px;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: space-around;
+}
+.form-group input Button{
+    display: flex;
+    flex-direction: row;
+}
+.form-group input  {
+    width: 30%;
+    height: 35px;
+    padding: 0 5px; 
+    border: none;
+    outline: none;
+    border-top:solid 1px #ccc;
+    border-left:solid 1px #ccc;
+    border-bottom:solid 1px #ccc;
+
+}
+#calcular {
+    width: 100px;
+    height: 35px;
+    background-color: #FFDAB9;
+    border: none;
+    outline:none;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    
+}
+.form-group label {
+    width: 30px;
+    font-size: 50%;
+
+}

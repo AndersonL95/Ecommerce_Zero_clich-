@@ -1,4 +1,5 @@
 const Produtos = require('../models/productModel');
+const Correios = require('node-correios')
 
 
 class APIfeatures {
@@ -60,7 +61,8 @@ const productController = {
     },
     createProduto: async(req, res) => {
         try {
-            const {produto_id, titulo, preco, descricao, conteudo, images, categoria} = req.body
+            const {produto_id, titulo, preco, descricao, conteudo, images, categoria,sCepOrigem, 
+                nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro,} = req.body
             if(!images) 
                 return res.status(400).json({msg: 'Adicione uma imagem.'})
 
@@ -69,7 +71,8 @@ const productController = {
                 return res.status(400).json({msg: 'O produto já existe.'})
 
             const newProduto = new Produtos({
-                produto_id, titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria
+                produto_id, titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria,
+                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, nCdServico
             })
             await newProduto.save()
             res.json({msg: 'Produto criado.'})
@@ -90,11 +93,13 @@ const productController = {
     },
     updateProduto: async(req, res) => {
         try {
-            const {titulo, preco, descricao, conteudo, images, categoria} = req.body
+            const {titulo, preco, descricao, conteudo, images, categoria, nVlPeso, nCdFormato,
+                nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, sCepOrigem} = req.body
             if(!images) 
                 return res.status(400).json({msg: 'Adicione uma imagem.'})
             await Produtos.findOneAndUpdate({_id: req.params.id}, {
-                titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria
+                titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria, nVlPeso,
+                nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, sCepOrigem
             })
             res.json({msg: 'Produto alterado.'})
         } catch (err) {
@@ -102,6 +107,22 @@ const productController = {
             
         }
     },
+    CalcFrete: async(req, res) => {
+        const correios = new Correios()
+
+        const { nCdServico, sCepOrigem, sCepDestino, nVlPeso, nCdFormato, nVlComprimento, nVlAltura,
+                nVlLargura, nVlDiamentro } = req.body
+        
+        correios.calcPrecoPrazo({ 
+            nCdServico , sCepOrigem, sCepDestino, nVlPeso, nCdFormato, 
+            nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro
+        }).then(values => {
+            res.json(values)
+            console.log(values)
+        }).catch(error => {
+            return res.json(error)
+        })
+    }
     
 }
 module.exports = productController

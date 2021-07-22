@@ -49,9 +49,43 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
 
+    },
+    tamanho: {
+        type: Array,
+        default: []
+    },
+    sCepOrigem:{
+      type: String,
+      required: true  
+    },
+    nVlPeso:{
+        type: String,
+        required: true
+    },
+    nCdFormato:{
+        type: Number,
+        default: 0
+    },
+    nVlComprimento:{
+        type: Number,
+        default:0
+    },
+    nVlAltura:{
+        type: Number,
+        default: 0
+    },
+    nVlLargura:{
+        type: Number,
+        default: 0
+    },
+    nVlDiamentro: {
+        type: Number,
+        default: 0
+    },
+    nCdServico: {
+        type: String,
+        required: true
     }
-
-
 }, {
     timestamps: true
 })

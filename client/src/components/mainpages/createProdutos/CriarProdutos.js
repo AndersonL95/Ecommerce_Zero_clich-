@@ -187,6 +187,76 @@ const CriarProduto = () => {
                     />
                 </div>
                 <div className='row'>
+                    <label htmlFor='Peso'>Peso em kg</label>
+                    <input 
+                        type='text' 
+                        name='nVlPeso' 
+                        id='nVlPeso' required 
+                        value={produto.nVlPeso}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Formato'>Formato do pacote: 1 = pacote 2 = Rolo/Prisma 3 = Envelope</label>
+                    <input 
+                        type='number' 
+                        name='nCdFormato' 
+                        id='nCdFormato' required 
+                        value={produto.nCdFormato}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Comprimento'>Comprimento da encomenda em cm</label>
+                    <input 
+                        type='number' 
+                        name='nVlComprimento' 
+                        id='nVlComprimento' required 
+                        value={produto.nVlComprimento}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Altura'>Altura da encomenda</label>
+                    <input 
+                        type='number' 
+                        name='nVlAltura' 
+                        id='nVlAltura' required 
+                        value={produto.nVlAltura}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Largura'>Largura da encomenda</label>
+                    <input 
+                        type='number' 
+                        name='nVlLargura' 
+                        id='nVlLargura' required 
+                        value={produto.nVlLargura}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Diametro'>Diametro da encomenda</label>
+                    <input 
+                        type='number' 
+                        name='nVlDiamentro' 
+                        id='nVlDiamentro' required 
+                        value={produto.nVlDiamentro}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
+                    <label htmlFor='Meu Cep'>Nosso Cep</label>
+                    <input 
+                        type='number' 
+                        name='sCepOrigem' 
+                        id='sCepOrigem' required 
+                        value={produto.sCepOrigem}
+                        onChange={handleChangeInput}    
+                    />
+                </div>
+                <div className='row'>
                     <label htmlFor='categorias'>Categorias</label>
                     <select name='categoria' value={produto.categoria} onChange={handleChangeInput}>
                         <option value="">Selecione uma categoria</option>
