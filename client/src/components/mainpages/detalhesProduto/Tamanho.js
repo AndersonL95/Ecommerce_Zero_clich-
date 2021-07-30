@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
+import {RadioGroup, Radio} from 'react-radio-group'
 
 const Tamanho = (produto) => {
 
@@ -20,15 +21,23 @@ const Tamanho = (produto) => {
 
     return (
         <div className='tamanhos'>
-            <select>
-                <option value=''>Tamanhos</option>
-                <option value='grande'>G</option>
-                <option value='medio'>M</option>
-                <option value='pequeno'>P</option>
-
-            </select>
+            <form>
+                <label className=''>
+                    <input type='radio' name='size'/>
+                    <span className=''>P</span>
+                </label>
+                <label className=''>
+                    <input type='radio' name='size'/>
+                    <span className=''>M</span>
+                </label>
+                <label className=''>
+                    <input type='radio' name='size'/>
+                    <span className=''>G</span>
+                </label>
+            </form>
+            
                     
-                </div>
+        </div>
         
     )
 }

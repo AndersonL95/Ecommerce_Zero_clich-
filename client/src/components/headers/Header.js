@@ -32,7 +32,7 @@ function Header() {
             <>
                 <li><Link to='/criar_produto'> + Produto</Link></li>
                 <li><Link to='/categoria' > categoria</Link></li>
-                <li><Link to='/tamanho'> Tamanhos</Link></li>
+                
 
             
             </>

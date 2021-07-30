@@ -3,7 +3,6 @@ import {useParams, Link} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
 import ProdutoItem from '../utils/ProdutoItem/ProdutoItem'
 import CalcFrete from '../Correios/CalcFrete'
-import Tamanho from './Tamanho'
 
 function DetalhesProduto(produto) {
     const params = useParams()
@@ -11,6 +10,7 @@ function DetalhesProduto(produto) {
     const [produtos] = state.produtosApi.produtos
     const [detalhesProdutos, setDetalhesProdutos] = useState([])
     const addCarrinho = state.userApi.addCarrinho
+
 
     useEffect(() => {
         if(params.id){
@@ -22,7 +22,6 @@ function DetalhesProduto(produto) {
     
     if(detalhesProdutos.length === 0) return null
 
-    
     return (
         <>
         <div className='detalhe'>
@@ -36,7 +35,22 @@ function DetalhesProduto(produto) {
                 <p>{detalhesProdutos.descricao}</p>
                 <p>{detalhesProdutos.conteudo}</p>
                 <p>Vendido: {detalhesProdutos.vendido}</p>
-                <Tamanho />
+                <div className='row'>
+                    <select>
+                        <option value=''>Tamanho</option>
+                        {
+                         produtos.map(produto => (
+                             
+                             <option >
+                                 
+                             </option>
+                         ))
+
+                        }
+                    </select>
+                        
+                        
+                </div>
                 <Link to='#!' className='btn_car' onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
                 <CalcFrete />
             </div>

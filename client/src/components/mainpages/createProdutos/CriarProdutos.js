@@ -12,6 +12,8 @@ const initialState = {
     descricao: '',
     conteudo: '',
     categoria: '',
+    tamanho: [{ tamanhoN: 'PP',key: '1', label: '1'}, {tamanhoN: 'P', key: '2', label: '2'}, {tamanhoN: 'M', key: '3', label: '3'},
+    {tamanhoN: 'G', key: '4', label: '4'},],
     _id:''
 }
     
@@ -24,6 +26,8 @@ const CriarProduto = () => {
     const [token] = state.token
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [isCheck, setIsCheck] = useState({})
+
 
     const history = useHistory()
     const param = useParams()
@@ -91,11 +95,17 @@ const CriarProduto = () => {
         }
     }
     const handleChangeInput = e => {
-        const {name, value} = e.target
+        const {name, value,} = e.target
         setProduto({...produto, [name]:value})
+        setIsCheck({...isCheck, [e.target.name]: e.target.checked})
     }
+    useEffect(() => {
+        console.log("isCheck:", isCheck)
+    }, [isCheck])
+ 
     const handleSubmit = async e => {
         e.preventDefault()
+        
         try {
             if(!seAdmin) 
                 return alert("Você não é administrador.")
@@ -185,6 +195,19 @@ const CriarProduto = () => {
                         rows='7'
                         onChange={handleChangeInput}
                     />
+                </div>
+                <div className='tamanho'>
+                    <label>Tamanho do produto : </label><br/>
+                    {
+                        produto.tamanho.map(item =>(
+                            <label className='container' key={item.key}>
+                                {item.tamanhoN}
+                                <input type='checkbox' className='campo' value={produto.tamanho} name={item.tamanhoN} checked={isCheck[item.tamanhoN]} onChange={handleChangeInput}/>
+                            </label>
+                        ))
+                    }
+                    
+                    
                 </div>
                 <div className='row'>
                     <label htmlFor='Peso'>Peso em kg</label>
@@ -276,3 +299,19 @@ const CriarProduto = () => {
 }
 
 export default CriarProduto
+
+/*<div className='tamanho'>
+                    <h3>Tamanho do produto</h3>
+                    <label className='container'>PP<input type='checkbox' name='PP'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>P <input type='checkbox' name='P'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>M <input type='checkbox' name='M'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>G <input type='checkbox' name='G'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>GG<input type='checkbox' name='GG'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                </div>
+                <div className='tamanho'>
+                    <label className='container'>36<input type='checkbox' name='36'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>38<input type='checkbox' name='38'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>40<input type='checkbox' name='40'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>42<input type='checkbox' name='42'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                    <label className='container'>44<input type='checkbox' name='44'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
+                </div> */

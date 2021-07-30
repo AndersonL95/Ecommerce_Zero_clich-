@@ -61,8 +61,8 @@ const productController = {
     },
     createProduto: async(req, res) => {
         try {
-            const {produto_id, titulo, preco, descricao, conteudo, images, categoria,sCepOrigem, 
-                nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro,} = req.body
+            const {produto_id, titulo, preco, descricao, conteudo, images, categoria, tamanho, 
+                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro,} = req.body
             if(!images) 
                 return res.status(400).json({msg: 'Adicione uma imagem.'})
 
@@ -71,8 +71,8 @@ const productController = {
                 return res.status(400).json({msg: 'O produto já existe.'})
 
             const newProduto = new Produtos({
-                produto_id, titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria,
-                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, nCdServico
+                produto_id, titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria, tamanho,
+                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro
             })
             await newProduto.save()
             res.json({msg: 'Produto criado.'})
@@ -93,13 +93,13 @@ const productController = {
     },
     updateProduto: async(req, res) => {
         try {
-            const {titulo, preco, descricao, conteudo, images, categoria, nVlPeso, nCdFormato,
+            const {titulo, preco, descricao, conteudo, images, categoria, tamanho, nVlPeso, nCdFormato,
                 nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, sCepOrigem} = req.body
             if(!images) 
                 return res.status(400).json({msg: 'Adicione uma imagem.'})
             await Produtos.findOneAndUpdate({_id: req.params.id}, {
-                titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria, nVlPeso,
-                nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, sCepOrigem
+                titulo: titulo.toLowerCase(), preco, descricao, conteudo, images, categoria, tamanho,
+                 nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro, sCepOrigem
             })
             res.json({msg: 'Produto alterado.'})
         } catch (err) {
