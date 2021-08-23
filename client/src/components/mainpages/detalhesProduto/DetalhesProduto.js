@@ -35,22 +35,25 @@ function DetalhesProduto(produto) {
                 <p>{detalhesProdutos.descricao}</p>
                 <p>{detalhesProdutos.conteudo}</p>
                 <p>Vendido: {detalhesProdutos.vendido}</p>
-                <div className='row'>
-                    <select>
-                        <option value=''>Tamanho</option>
-                        {
-                         produtos.map(produto => (
-                             
-                             <option >
-                                 
-                             </option>
-                         ))
-
-                        }
-                    </select>
-                        
-                        
-                </div>
+                 <div className='row'>
+                    <select className='tamanhos'>
+                        <option value=''>Tamanho</option>
+                        {
+                            detalhesProdutos.tamanho.map((i ) =>{
+                                if(i.checked === true){
+                                return(
+                                    <option key={detalhesProdutos.id}  >
+                                        {i.name}
+                                    </option>
+                                )
+                            }})
+                            
+                        }
+                        
+                    </select>
+                        
+                        
+                </div>
                 <Link to='#!' className='btn_car' onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
                 <CalcFrete />
             </div>

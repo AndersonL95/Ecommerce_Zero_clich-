@@ -12,8 +12,7 @@ const initialState = {
     descricao: '',
     conteudo: '',
     categoria: '',
-    tamanho: [{ tamanhoN: 'PP',key: '1', label: '1'}, {tamanhoN: 'P', key: '2', label: '2'}, {tamanhoN: 'M', key: '3', label: '3'},
-    {tamanhoN: 'G', key: '4', label: '4'},],
+    tamanho:[],
     _id:''
 }
     
@@ -26,7 +25,10 @@ const CriarProduto = () => {
     const [token] = state.token
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [isCheck, setIsCheck] = useState({})
+    const [tamanhos, setTamanhos] = useState([
+        { name: 'PP',key: '1', label: '1', checked:false}, {name: 'P', key: '2', label: '2', checked:false}, 
+        {name: 'M', key: '3', label: '3', checked:false}, {name: 'G', key: '4', label: '4', checked:false},
+    ],)
 
 
     const history = useHistory()
@@ -35,6 +37,7 @@ const CriarProduto = () => {
     const [produtos] = state.produtosApi.produtos
     const [onEdit, setOnEdit] = useState(false)
     const [callback, setCallback] = state.produtosApi.callback
+    
 
     useEffect(() =>{
        if(param.id){
@@ -95,14 +98,30 @@ const CriarProduto = () => {
         }
     }
     const handleChangeInput = e => {
-        const {name, value,} = e.target
+        const {name, value, checked} = e.target
         setProduto({...produto, [name]:value})
-        setIsCheck({...isCheck, [e.target.name]: e.target.checked})
+        //setIsCheck({...isCheck, [name]:checked })
+        
     }
-    useEffect(() => {
+    const handleChange = name => {
+        const newState = tamanhos.map(el => {
+            const label = el
+
+            if(el.name === name){
+            label.checked = !el.checked
+        }
+        return label
+    })
+    setTamanhos(newState)
+    produto.tamanho = newState
+    
+
+    }
+    
+    /*useEffect(() => {
         console.log("isCheck:", isCheck)
-    }, [isCheck])
- 
+    }, [isCheck])*/
+
     const handleSubmit = async e => {
         e.preventDefault()
         
@@ -122,6 +141,7 @@ const CriarProduto = () => {
             
             }
             setCallback(!callback)
+            console.log(produto)
             history.push('/')
         } catch (err) {
             alert(err.response.data.msg)
@@ -199,12 +219,30 @@ const CriarProduto = () => {
                 <div className='tamanho'>
                     <label>Tamanho do produto : </label><br/>
                     {
-                        produto.tamanho.map(item =>(
+                        tamanhos.map((item, index) =>(
+                            <view key={index}>
+                                <input
+                                    type='checkbox'
+                                    value={item.checked}
+                                    onChange={() => handleChange(item.name)}
+                                />
+                                {item.name}
+                            </view>
+                        ))
+                        /*produto.tamanho.map(item =>(
                             <label className='container' key={item.key}>
-                                {item.tamanhoN}
-                                <input type='checkbox' className='campo' value={produto.tamanho} name={item.tamanhoN} checked={isCheck[item.tamanhoN]} onChange={handleChangeInput}/>
+                                {item.nome}
+                                <input
+                                    type='checkbox' 
+                                    className='campo' 
+                                    value={produto.tamanho} 
+                                    name={item.nome} 
+                                    checked={isCheck[item.nome]} 
+                                    onChange={handleChangeInput}
+                                />
                             </label>
                         ))
+                        */
                     }
                     
                     
