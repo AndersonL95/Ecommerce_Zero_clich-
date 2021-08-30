@@ -62,7 +62,8 @@ function Produtos() {
         
         <div className='slider'>
             <Slider className={produtos.Slider}/>
-            <div className='filtro'><Filters />
+            <div className='filtro'>
+                <Filters />
             {
             seAdmin &&
             <div className='deleteAll'>

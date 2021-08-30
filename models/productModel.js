@@ -54,6 +54,10 @@ const productSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
+    tamSelect: {
+        type: String,
+        default:true
+    },
     sCepOrigem:{
       type: String,
       required: true  

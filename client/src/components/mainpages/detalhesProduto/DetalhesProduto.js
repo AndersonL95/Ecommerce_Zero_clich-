@@ -10,21 +10,26 @@ function DetalhesProduto(produto) {
     const [produtos] = state.produtosApi.produtos
     const [detalhesProdutos, setDetalhesProdutos] = useState([])
     const addCarrinho = state.userApi.addCarrinho
+    const [opt, setOpt] = useState()
 
 
     useEffect(() => {
         if(params.id){
             produtos.forEach(produto => {
                 if(produto._id === params.id) setDetalhesProdutos(produto)
+                
             })
         }
     }, [params.id, detalhesProdutos])
     
     if(detalhesProdutos.length === 0) return null
-
+    detalhesProdutos.tamSelect = opt
+    
     return (
+
         <>
         <div className='detalhe'>
+            <p>{detalhesProdutos.tamSelect}</p>
             <img src={detalhesProdutos.images.url} alt=''/>
             <div className='caixa_detalhe'>
                 <div className='row'>
@@ -35,26 +40,21 @@ function DetalhesProduto(produto) {
                 <p>{detalhesProdutos.descricao}</p>
                 <p>{detalhesProdutos.conteudo}</p>
                 <p>Vendido: {detalhesProdutos.vendido}</p>
-                 <div className='row'>
-                    <select className='tamanhos'>
-                        <option value=''>Tamanho</option>
+                <select id='selectTam' value={opt} onChange={e => setOpt(e.target.value)} >
+                    <option id='size'value=''>Tamanho</option>
                         {
-                            detalhesProdutos.tamanho.map((i ) =>{
+                            detalhesProdutos.tamanho.map((i) =>{
                                 if(i.checked === true){
                                 return(
-                                    <option key={detalhesProdutos.id}  >
-                                        {i.name}
-                                    </option>
+                                    <option id='size' key={detalhesProdutos.id} >{i.name}</option>
                                 )
                             }})
-                            
-                        }
-                        
-                    </select>
-                        
-                        
-                </div>
-                <Link to='#!' className='btn_car' onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
+                         }
+                    </select>
+                  
+                    
+          
+                <Link to='#!' className='btn_car'  onClick={() => addCarrinho(detalhesProdutos)}> Comprar</Link>
                 <CalcFrete />
             </div>
             

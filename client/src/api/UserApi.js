@@ -31,8 +31,7 @@ function UserApi(token) {
 
     
     const addCarrinho = async (produto) => {
-        if(!seLogado)
-            return alert("Por favor, insira o login para continuar!")
+        if(!seLogado)return alert("Por favor, insira o login para continuar!")
 
             const check = carrinho.every(item =>{
                 return item._id !== produto._id

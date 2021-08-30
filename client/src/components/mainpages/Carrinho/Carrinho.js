@@ -74,15 +74,20 @@ function Carrinho() {
     return (
         <div>
             {
-                carrinho.map(produto => (
+                carrinho.map(produto => {
+                    return (
+
+                    
                     <div className='detalhe carrinho' key={produto._id}>
                         <img src={produto.images.url} alt='' className='img_container'/>
                         <div className='caixa_detalhe'>
                             <h2>{produto.titulo}</h2>
-
+                          <h3>Tamanho</h3>
+                         
                                 <h3>R$ {produto.preco * produto.quantity}</h3> 
                                 <p>{produto.descricao}</p>
                                 <p>{produto.conteudo}</p>
+                                <p> Tamanho: {produto.tamSelect}</p>
                                 <div className='amount'>
                                     <button onClick={() => decremente(produto._id)}> - </button>
                                     <span>{produto.quantity}</span>
@@ -91,7 +96,9 @@ function Carrinho() {
                                 <div className='delete' onClick={() => removeProduto(produto._id)}> <DeleteForeverIcon /> </div>
                         </div>
                     </div>
-                ))
+                    )  
+                })
+                
             }
             <div className='total'>
                 <h3>Total: R$ {total}</h3>
@@ -103,3 +110,11 @@ function Carrinho() {
     )
 }
 export default Carrinho
+
+/*{
+                            produto.tamanho.map((i) =>{
+                                return(
+                                    <p id='size' key={produto.id}>{i.name}</p>
+                                )   
+                           })
+                         }*/ 

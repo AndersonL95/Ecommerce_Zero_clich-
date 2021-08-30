@@ -48,6 +48,7 @@ function HistoricoDetalhes() {
                         <th> Produtos</th>
                         <th> Quantidade</th>
                         <th> Preço</th>
+                        <th> Tamanho</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +59,7 @@ function HistoricoDetalhes() {
                                 <td>{item.titulo}</td>
                                 <td>{item.quantity}</td>
                                 <td>R$ {item.preco * item.quantity}</td>
+                                <td>{item.tamSelect}</td>
                             </tr>
                         ))
                     }                    

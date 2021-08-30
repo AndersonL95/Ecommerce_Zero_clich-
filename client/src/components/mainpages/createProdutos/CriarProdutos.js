@@ -26,7 +26,7 @@ const CriarProduto = () => {
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
     const [tamanhos, setTamanhos] = useState([
-        { name: 'PP',key: '1', label: '1', checked:false}, {name: 'P', key: '2', label: '2', checked:false}, 
+        { name: 'pp',key: '1', label: '1', checked:false}, {name: 'P', key: '2', label: '2', checked:false}, 
         {name: 'M', key: '3', label: '3', checked:false}, {name: 'G', key: '4', label: '4', checked:false},
     ],)
 
