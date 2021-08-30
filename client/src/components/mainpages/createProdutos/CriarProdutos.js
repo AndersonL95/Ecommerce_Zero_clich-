@@ -13,6 +13,7 @@ const initialState = {
     conteudo: '',
     categoria: '',
     tamanho:[],
+    nCdFormato: 0,
     _id:''
 }
     
@@ -26,10 +27,13 @@ const CriarProduto = () => {
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
     const [tamanhos, setTamanhos] = useState([
-        { name: 'pp',key: '1', label: '1', checked:false}, {name: 'P', key: '2', label: '2', checked:false}, 
+        {name: 'PP',key: '1', label: '1', checked:false}, {name: 'P', key: '2', label: '2', checked:false}, 
         {name: 'M', key: '3', label: '3', checked:false}, {name: 'G', key: '4', label: '4', checked:false},
+        {name: 'GG', key: '5', label: '5', checked:false}, {name: '36', key: '6', label: '6', checked:false},
+        {name: '38', key: '7', label: '7', checked:false}, {name: '40', key: '8', label: '8', checked:false},
+        {name: '42', key: '9', label: '9', checked:false},
     ],)
-
+    
 
     const history = useHistory()
     const param = useParams()
@@ -37,6 +41,7 @@ const CriarProduto = () => {
     const [produtos] = state.produtosApi.produtos
     const [onEdit, setOnEdit] = useState(false)
     const [callback, setCallback] = state.produtosApi.callback
+    const [formato, setFormato] = useState()
     
 
     useEffect(() =>{
@@ -150,6 +155,7 @@ const CriarProduto = () => {
     const styleUpload ={
         display: images ? 'block' : 'none'
     }
+    produto.nCdFormato = formato
     return (
         <div className='criar_produto'>
             <div className='upload'>
@@ -220,8 +226,9 @@ const CriarProduto = () => {
                     <label>Tamanho do produto : </label><br/>
                     {
                         tamanhos.map((item, index) =>(
-                            <view key={index}>
+                            <view className='container' key={index}>
                                 <input
+                                    className='campo'
                                     type='checkbox'
                                     value={item.checked}
                                     onChange={() => handleChange(item.name)}
@@ -229,23 +236,30 @@ const CriarProduto = () => {
                                 {item.name}
                             </view>
                         ))
-                        /*produto.tamanho.map(item =>(
-                            <label className='container' key={item.key}>
-                                {item.nome}
-                                <input
-                                    type='checkbox' 
-                                    className='campo' 
-                                    value={produto.tamanho} 
-                                    name={item.nome} 
-                                    checked={isCheck[item.nome]} 
-                                    onChange={handleChangeInput}
-                                />
-                            </label>
-                        ))
-                        */
                     }
-                    
-                    
+                </div>
+                <div className='row'>
+                    <label htmlFor='categorias'>Categorias: </label>
+                    <select className='selCreate' name='categoria' value={produto.categoria} onChange={handleChangeInput}>
+                        <option value="">Selecione uma categoria</option>
+                        {
+                            categorias.map(categoria => (
+                                <option value={categoria._id} key={categoria._id}>
+                                    {categoria.nome}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <div className='infoEnv'><label>Informações de envio</label></div>
+                <div className='row'>
+                    <label>Formato: </label>
+                    <select className='selCreate' id='selectForm' value={formato} onChange={e => setFormato(e.target.value)}>
+                        <option value=''>Selecionar formato </option>
+                        <option value='1' id='1' onChange={handleChangeInput}>Pacote</option>
+                        <option value='2' id='2' onChange={handleChangeInput}>Rolo</option>
+                        <option value='3' id='3' onChange={handleChangeInput}>Prisma</option>
+                    </select>
                 </div>
                 <div className='row'>
                     <label htmlFor='Peso'>Peso em kg</label>
@@ -257,16 +271,7 @@ const CriarProduto = () => {
                         onChange={handleChangeInput}    
                     />
                 </div>
-                <div className='row'>
-                    <label htmlFor='Formato'>Formato do pacote: 1 = pacote 2 = Rolo/Prisma 3 = Envelope</label>
-                    <input 
-                        type='number' 
-                        name='nCdFormato' 
-                        id='nCdFormato' required 
-                        value={produto.nCdFormato}
-                        onChange={handleChangeInput}    
-                    />
-                </div>
+               
                 <div className='row'>
                     <label htmlFor='Comprimento'>Comprimento da encomenda em cm</label>
                     <input 
@@ -317,19 +322,7 @@ const CriarProduto = () => {
                         onChange={handleChangeInput}    
                     />
                 </div>
-                <div className='row'>
-                    <label htmlFor='categorias'>Categorias</label>
-                    <select name='categoria' value={produto.categoria} onChange={handleChangeInput}>
-                        <option value="">Selecione uma categoria</option>
-                        {
-                            categorias.map(categoria => (
-                                <option value={categoria._id} key={categoria._id}>
-                                    {categoria.nome}
-                                </option>
-                            ))
-                        }
-                    </select>
-                </div>
+                
                 <button type='submit'>{onEdit? 'Editar' : 'Adicionar'}</button>
             </form>
         </div>
@@ -338,7 +331,16 @@ const CriarProduto = () => {
 
 export default CriarProduto
 
-/*<div className='tamanho'>
+/*
+<input 
+                        type='number' 
+                        name='nCdFormato' 
+                        id='nCdFormato' required 
+                        value={produto.nCdFormato}
+                        onChange={handleChangeInput}    
+                    />
+
+<div className='tamanho'>
                     <h3>Tamanho do produto</h3>
                     <label className='container'>PP<input type='checkbox' name='PP'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
                     <label className='container'>P <input type='checkbox' name='P'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>

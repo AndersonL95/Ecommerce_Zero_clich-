@@ -116,8 +116,16 @@
     border: solid 1px;
     min-height: 20px;
 }
-   
-
+.row select {
+}
+.infoEnv label {
+    margin-top: 15px;
+    font-size: 25px;
+}
+.selCreate {
+    height: 30px;
+    background-color:antiquewhite;
+}
 /*
 position: absolute;
         height: 20px;
