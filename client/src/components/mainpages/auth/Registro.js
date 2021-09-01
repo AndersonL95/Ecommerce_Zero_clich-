@@ -18,7 +18,7 @@ import Slider from '../Slider/Slider'
 
 function Registro() {
     const [usuario, setUsuario] = useState({
-       nome: '', email: '', senha: ''
+       nome: '', email: '', senha: '', sCepDestino: ''
     })
 
     const onChange = e =>{
@@ -134,6 +134,18 @@ function Registro() {
               type="senha"
               id="password"
               value={usuario.senha} 
+              onChange={onChange}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="sCepDestino"
+              label="CEP"
+              type="cep"
+              id="sCepDestino"
+              value={usuario.sCepDestino} 
               onChange={onChange}
             />
             <FormControlLabel

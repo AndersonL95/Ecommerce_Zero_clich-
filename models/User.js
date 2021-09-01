@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
     carrinho: {
         type: Array,
         default: []
+    },
+    sCepDestino: {
+        type: String,
+        default: true
     }
 }, {
     timestamps: true

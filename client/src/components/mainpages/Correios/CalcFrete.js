@@ -1,47 +1,58 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
+import {useParams, Link} from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import {GlobalState} from '../../../GlobalState'
 import FreteResult from './FreteResult'
 import axios from 'axios'
 
-function CalcFrete() {
+function CalcFrete(produto) {
 
   const state = useContext(GlobalState)
   const [produtos] = state.produtosApi.produtos
   const [events, setEvents] = useState([])
-  const [produto, setProduto] = useState()
-  const nCdServico = '04014, 04510'
-
-  const convertToarray = (obj) => {
-    const arr = [obj]
-    return arr
-  }
+  const params = useParams()
+  
+  const [envio, setEnvio] = useState([])
+  const [dest, setDest] = useState()
+  const nCdServico = '04014'
+  envio.sCepDestino = dest
+ 
+  useEffect(() => {
+    if(params.id){
+        produtos.forEach(produto => {
+            if(produto._id === params.id) setEnvio(produto)
+            
+        })
+    }
+}, [params.id, envio])
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post('/frete',{...produto, nCdServico })
+      await axios.post('/frete',{...envio, nCdServico} )
       .then(response => response.json())
-      .then(produtos =>{
-        const array = convertToarray(produtos)
-        console.log(array)
-        setEvents(array)
+      .then(envio =>{
+        
       })
     } catch (err) {
       
     }
+    console.log(envio)
+    
   }
-  const handleChangeInput =  e => {
+  const handleChange = e => {
     const {name, value} = e.target
-        setProduto({...produto, [name]:value})
-    }
+    
+    
+  }
   
   return(
     
     <div className='CalcFrete'>
+      
       <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <label>Calcular frete </label>
-            <input type='text'name='sCepDestino' placeholder='Digite o seu Cep.' onChange={handleChangeInput}/>
+            <input type='text'name='sCepDestino' placeholder='Digite o seu Cep.' value={dest} onChange={e => setDest(e.target.value)}/>
             <Button type='submit' name='' id='calcular' >Calcular</Button>
           </div>
 

@@ -14,6 +14,13 @@ const initialState = {
     categoria: '',
     tamanho:[],
     nCdFormato: 0,
+    nVlPeso: 0,
+    nVlComprimento: 0,
+    nVlAltura: 0,
+    nVlLargura: 0,
+    nVlDiamentro: 0,
+    sCepOrigem: '',
+    sCepDestino: '',
     _id:''
 }
     
@@ -262,7 +269,7 @@ const CriarProduto = () => {
                     </select>
                 </div>
                 <div className='row'>
-                    <label htmlFor='Peso'>Peso em kg</label>
+                    <label htmlFor='Peso'>Peso em Kg</label>
                     <input 
                         type='text' 
                         name='nVlPeso' 
@@ -332,26 +339,4 @@ const CriarProduto = () => {
 export default CriarProduto
 
 /*
-<input 
-                        type='number' 
-                        name='nCdFormato' 
-                        id='nCdFormato' required 
-                        value={produto.nCdFormato}
-                        onChange={handleChangeInput}    
-                    />
-
-<div className='tamanho'>
-                    <h3>Tamanho do produto</h3>
-                    <label className='container'>PP<input type='checkbox' name='PP'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>P <input type='checkbox' name='P'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>M <input type='checkbox' name='M'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>G <input type='checkbox' name='G'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>GG<input type='checkbox' name='GG'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                </div>
-                <div className='tamanho'>
-                    <label className='container'>36<input type='checkbox' name='36'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>38<input type='checkbox' name='38'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>40<input type='checkbox' name='40'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>42<input type='checkbox' name='42'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                    <label className='container'>44<input type='checkbox' name='44'value={produto.tamanho} checked={isCheck} onChange={handleChangeInput}/> <span className='checkmark'></span></label>
-                </div> */
+*/

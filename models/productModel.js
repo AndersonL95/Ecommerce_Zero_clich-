@@ -62,13 +62,21 @@ const productSchema = new mongoose.Schema({
       type: String,
       required: true  
     },
-    nVlPeso:{
+    sCepDestino: {
         type: String,
-        required: true
+        required: false
     },
     nCdFormato:{
         type: Number,
         default: 0
+    },
+    nCdServico: {
+        type: String,
+        required: false
+    },
+    nVlPeso:{
+        type: String,
+        required: true
     },
     nVlComprimento:{
         type: Number,
