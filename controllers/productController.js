@@ -122,7 +122,8 @@ const productController = {
         }).catch(error => {
             return res.json(error)
         })
-    }
+    },
+    
     
 }
 module.exports = productController

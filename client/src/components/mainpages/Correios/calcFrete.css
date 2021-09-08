@@ -38,3 +38,9 @@
     font-size: 50%;
 
 }
+#resultado {
+    width: 75%;
+    font-size: 15px;
+    border: #333 solid 1px;
+    margin-top: 10px;
+}

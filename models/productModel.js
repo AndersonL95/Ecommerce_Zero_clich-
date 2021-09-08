@@ -94,7 +94,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    
+    result: {
+        type: Array,
+        default: []
+    }
 }, {
     timestamps: true
 })

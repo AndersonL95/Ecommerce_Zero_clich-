@@ -1,12 +1,10 @@
 import React from 'react'
 
 function FreteResult({events}) {
-    if(!events || events.length === 0) return null
+   /* if(!events || events.length === 0) return null*/
+   console.log(events)
     return (
-        <div>
-            Resultados
-            tipo de frete
-        </div>
+        <h1>Resultado</h1>
     )
 }
 

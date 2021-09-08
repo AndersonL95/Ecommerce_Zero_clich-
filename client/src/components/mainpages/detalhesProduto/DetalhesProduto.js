@@ -20,7 +20,7 @@ function DetalhesProduto(produto) {
                 
             })
         }
-    }, [params.id, detalhesProdutos])
+    }, [params.id, produtos])
     
     if(detalhesProdutos.length === 0) return null
     detalhesProdutos.tamSelect = opt
