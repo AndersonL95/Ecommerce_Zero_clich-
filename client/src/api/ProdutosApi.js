@@ -6,9 +6,7 @@ function ProdutosApi() {
     const [produtos, setProdutos] = useState([])
     const [callback, setCallback] = useState(false)
     const [categoria, setCategoria] = useState('')
-    const [sort, setSort] = useState('')
-    const [search, setSearch] = useState('')
-    const [page, setPage] = useState(1)
+   
     const [result, setResult] = useState(0)
 
     useEffect(() =>{

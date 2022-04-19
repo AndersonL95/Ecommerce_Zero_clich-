@@ -62,7 +62,8 @@ const productController = {
     createProduto: async(req, res) => {
         try {
             const {produto_id, titulo, preco, descricao, conteudo, images, categoria, tamanho, 
-                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, nVlDiamentro,} = req.body
+                sCepOrigem, nVlPeso, nCdFormato, nVlComprimento, nVlAltura, nVlLargura, 
+                nVlDiamentro,} = req.body
             if(!images) 
                 return res.status(400).json({msg: 'Adicione uma imagem.'})
 
