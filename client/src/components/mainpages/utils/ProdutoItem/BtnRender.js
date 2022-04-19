@@ -40,6 +40,7 @@ function BtnRender({produto, deleteProduto}) {
                     </>
         
             }
+        
             
         </div>
         
